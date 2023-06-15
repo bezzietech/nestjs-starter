@@ -11,9 +11,28 @@ window.onload = function() {
   "swaggerDoc": {
     "openapi": "3.0.0",
     "paths": {
-      "/": {
+      "/protected": {
         "get": {
           "operationId": "AppController_getHello",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "App"
+          ],
+          "security": [
+            {
+              "JWT": []
+            }
+          ]
+        }
+      },
+      "/public": {
+        "get": {
+          "operationId": "AppController_getPublicHello",
           "parameters": [],
           "responses": {
             "200": {
