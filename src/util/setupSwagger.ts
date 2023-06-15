@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { OpenAPIObject } from '@nestjs/swagger';
 import { createWriteStream, writeFileSync } from 'fs';
 import { get } from 'http';
@@ -14,15 +15,17 @@ export function setupSwaggerFiles(
       `http://${host}:${port}/swagger/swagger-ui-bundle.js`,
       function (response) {
         response.pipe(createWriteStream('swagger-static/swagger-ui-bundle.js'));
-        console.log(
+        Logger.log(
           `Swagger UI bundle file written to: '/swagger-static/swagger-ui-bundle.js'`,
+          'SwaggerDocs',
         );
       },
     );
     get(`http://${host}:${port}/swagger/`, function (response) {
       response.pipe(createWriteStream('swagger-static/index.html'));
-      console.log(
+      Logger.log(
         `Swagger UI bundle file written to: '/swagger-static/index.html'`,
+        'SwaggerDocs',
       );
     });
 
@@ -30,8 +33,9 @@ export function setupSwaggerFiles(
       `http://${host}:${port}/swagger/swagger-ui-init.js`,
       function (response) {
         response.pipe(createWriteStream('swagger-static/swagger-ui-init.js'));
-        console.log(
+        Logger.log(
           `Swagger UI init file written to: '/swagger-static/swagger-ui-init.js'`,
+          'SwaggerDocs',
         );
       },
     );
@@ -45,7 +49,10 @@ export function setupSwaggerFiles(
     );
     const swaggerJson = JSON.stringify(document, null, 2);
     writeFileSync(pathToSwaggerJson, swaggerJson);
-    console.log(`Swagger JSON file written to: '/swagger-static/swagger.json'`);
+    Logger.log(
+      `Swagger JSON file written to: '/swagger-static/swagger.json'`,
+      'SwaggerDocs',
+    );
 
     get(
       `http://${host}:${port}/swagger/swagger-ui-standalone-preset.js`,
@@ -53,16 +60,18 @@ export function setupSwaggerFiles(
         response.pipe(
           createWriteStream('swagger-static/swagger-ui-standalone-preset.js'),
         );
-        console.log(
+        Logger.log(
           `Swagger UI standalone preset file written to: '/swagger-static/swagger-ui-standalone-preset.js'`,
+          'SwaggerDocs',
         );
       },
     );
 
     get(`http://${host}:${port}/swagger/swagger-ui.css`, function (response) {
       response.pipe(createWriteStream('swagger-static/swagger-ui.css'));
-      console.log(
+      Logger.log(
         `Swagger UI css file written to: '/swagger-static/swagger-ui.css'`,
+        'SwaggerDocs',
       );
     });
   }
