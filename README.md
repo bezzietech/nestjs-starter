@@ -1,73 +1,82 @@
+# NestJS Starter App with Swagger, ClerkJS, and Mongoose Integration
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://bezzietech.com" target="blank"><img src="https://bezzietech.com/img/Logo.png" width="200" alt="BezzieTech Logo" /></a>
 </p>
+This repository contains a starter application built with NestJS 10.0.1 and TypeScript. It integrates Swagger for API documentation, ClerkJS for authentication, and Mongoose as the database ORM.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Prerequisites
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Make sure you have the following software installed on your machine:
 
-## Description
+- Node.js (version 16 or above)
+- MongoDB (installed and running)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Getting Started
 
-## Installation
+To get started with this starter app, follow these steps:
 
-```bash
-$ npm install
-```
+1. Clone the repository:
 
-## Running the app
+   ```bash
+   git clone https://github.com/bezzietech/nestjs-starter-app.git
+   ```
 
-```bash
-# development
-$ npm run start
+2. Install the dependencies:
 
-# watch mode
-$ npm run start:dev
+   ```bash
+   cd nestjs-starter-app
+   npm install
+   ```
 
-# production mode
-$ npm run start:prod
-```
+3. Configure the environment variables:
 
-## Test
+   Create a `.env` file in the project root directory and add the following environment variables:
 
-```bash
-# unit tests
-$ npm run test
+   ```plaintext
+   MONGODB_URI=your-mongodb-uri
+   CLERK_API_KEY=your-clerk-api-key
+   ```
 
-# e2e tests
-$ npm run test:e2e
+4. Run the application:
 
-# test coverage
-$ npm run test:cov
-```
+   ```bash
+   npm run dev
+   ```
 
-## Support
+   This command will start the application in development mode. You can access it at `http://localhost:3000`.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Project Structure
 
-## Stay in touch
+The project follows a modular structure and includes the following directories:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- `src`: Contains the application source code.
+  - `controllers`: Contains the controllers that handle incoming HTTP requests.
+  - `dtos`: Contains the data transfer objects used for request and response validation.
+  - `services`: Contains the business logic services.
+- `test`: Contains the unit tests for the application.
+
+## Swagger Documentation
+
+This starter app includes Swagger for API documentation. Once the application is running, you can access the Swagger UI at `http://localhost:3000/swagger`. The Swagger UI provides a detailed documentation of the available endpoints, request/response schemas, and allows you to test the APIs directly from the interface.
+
+## ClerkJS Integration
+
+ClerkJS is used for authentication in this starter app. It provides a secure and customizable user authentication and management system. To integrate ClerkJS further into your application, you can explore the `src/auth` directory, which contains the necessary configuration and middleware for handling user authentication.
+
+## Mongoose Integration
+
+Mongoose is used as the database ORM in this starter app. The `src/models` directory contains the Mongoose models representing your application's data structures. You can create additional models or modify the existing ones according to your application's requirements.
+
+## Additional Information
+
+For more information on how to use NestJS, Swagger, ClerkJS, and Mongoose, please refer to their respective documentation:
+
+- NestJS: [https://docs.nestjs.com](https://docs.nestjs.com)
+- Swagger: [https://swagger.io](https://swagger.io)
+- ClerkJS: [https://docs.clerk.dev](https://docs.clerk.dev)
+- Mongoose: [https://mongoosejs.com](https://mongoosejs.com)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This starter app is licensed under the [MIT License](LICENSE). Feel free to modify and use it to kickstart your NestJS projects!
