@@ -1,4 +1,4 @@
-# NestJS Starter App with Swagger, ClerkJS, and Mongoose Integration
+Starter App with NestJS Swagger, ClerkJS, and Mongoose
 
 <p align="center">
   <a href="http://bezzietech.com" target="blank"><img src="https://bezzietech.com/img/Logo.png" width="200" alt="BezzieTech Logo" /></a>
