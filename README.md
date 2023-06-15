@@ -38,8 +38,18 @@ To get started with this starter app, follow these steps:
    Create a `.env` file in the project root directory and add the following environment variables:
 
    ```plaintext
-   MONGODB_URI=your-mongodb-uri
-   CLERK_API_KEY=your-clerk-api-key
+   NODE_ENV=development
+   HOST=0.0.0.0
+   PORT=3000
+   SWAGGER_APP_TITLE="NestJS Starter by BezzieTech"
+   CLERK_JWT_VERIFICATION_KEY="Grab the JWT verification key from Clerk Dashboard"
+   MAIL_HOST="mail.google.com"
+   MAIL_PASSWORD="secret"
+   MAIL_PORT=465
+   MAIL_USERNAME="someone@gmail.com"
+   REQUIRE_TLS=true
+   SECURE_MAIL=true
+   MONGODB_URI="mongodb://localhost:27017/myawesome-db"
    ```
 
 4. Run the application:
@@ -55,10 +65,9 @@ To get started with this starter app, follow these steps:
 The project follows a modular structure and includes the following directories:
 
 - `src`: Contains the application source code.
-  - `controllers`: Contains the controllers that handle incoming HTTP requests.
-  - `dtos`: Contains the data transfer objects used for request and response validation.
-  - `services`: Contains the business logic services.
-- `test`: Contains the unit tests for the application.
+  - `auth`: Contains the JWT related stuff for Clerk Authentication.
+  - `shared`: Contains decroators, Exception filters, Role Guards, Logger and Http Interceptors, Validation pipes and a small util code to send e-mail
+- `swagger-static`: Contains the HTML,CSS and JS required to load swagger
 
 ## Swagger Documentation
 
