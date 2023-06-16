@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { jwtConstants } from './constants';
 import { InactiveJwtStrategy } from './inactive-jwt.strategy';
 import { JwtStrategy } from './jwt.strategy';
+
 @Module({
   imports: [
     JwtModule.register({

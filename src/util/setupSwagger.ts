@@ -5,40 +5,34 @@ import { get } from 'http';
 import { resolve } from 'path';
 
 export function setupSwaggerFiles(
-  host = '0.0.0.0',
-  port = 3000,
+  host: string,
+  port: number,
   document: OpenAPIObject,
 ) {
   if (process.env.NODE_ENV === 'development') {
     // write swagger ui files
-    get(
-      `http://${host}:${port}/swagger/swagger-ui-bundle.js`,
-      function (response) {
-        response.pipe(createWriteStream('swagger-static/swagger-ui-bundle.js'));
-        Logger.log(
-          `Swagger UI bundle file written to: '/swagger-static/swagger-ui-bundle.js'`,
-          'SwaggerDocs',
-        );
-      },
-    );
-    get(`http://${host}:${port}/swagger/`, function (response) {
+    get(`http://${host}:${port}/swagger/swagger-ui-bundle.js`, (response) => {
+      response.pipe(createWriteStream('swagger-static/swagger-ui-bundle.js'));
+      Logger.log(
+        "Swagger UI bundle file written to: '/swagger-static/swagger-ui-bundle.js'",
+        'SwaggerDocs',
+      );
+    });
+    get(`http://${host}:${port}/swagger/`, (response) => {
       response.pipe(createWriteStream('swagger-static/index.html'));
       Logger.log(
-        `Swagger UI bundle file written to: '/swagger-static/index.html'`,
+        "Swagger UI bundle file written to: '/swagger-static/index.html'",
         'SwaggerDocs',
       );
     });
 
-    get(
-      `http://${host}:${port}/swagger/swagger-ui-init.js`,
-      function (response) {
-        response.pipe(createWriteStream('swagger-static/swagger-ui-init.js'));
-        Logger.log(
-          `Swagger UI init file written to: '/swagger-static/swagger-ui-init.js'`,
-          'SwaggerDocs',
-        );
-      },
-    );
+    get(`http://${host}:${port}/swagger/swagger-ui-init.js`, (response) => {
+      response.pipe(createWriteStream('swagger-static/swagger-ui-init.js'));
+      Logger.log(
+        "Swagger UI init file written to: '/swagger-static/swagger-ui-init.js'",
+        'SwaggerDocs',
+      );
+    });
 
     const pathToSwaggerStaticFolder = resolve(process.cwd(), 'swagger-static');
 
@@ -50,27 +44,27 @@ export function setupSwaggerFiles(
     const swaggerJson = JSON.stringify(document, null, 2);
     writeFileSync(pathToSwaggerJson, swaggerJson);
     Logger.log(
-      `Swagger JSON file written to: '/swagger-static/swagger.json'`,
+      "Swagger JSON file written to: '/swagger-static/swagger.json'",
       'SwaggerDocs',
     );
 
     get(
       `http://${host}:${port}/swagger/swagger-ui-standalone-preset.js`,
-      function (response) {
+      (response) => {
         response.pipe(
           createWriteStream('swagger-static/swagger-ui-standalone-preset.js'),
         );
         Logger.log(
-          `Swagger UI standalone preset file written to: '/swagger-static/swagger-ui-standalone-preset.js'`,
+          "Swagger UI standalone preset file written to: '/swagger-static/swagger-ui-standalone-preset.js'",
           'SwaggerDocs',
         );
       },
     );
 
-    get(`http://${host}:${port}/swagger/swagger-ui.css`, function (response) {
+    get(`http://${host}:${port}/swagger/swagger-ui.css`, (response) => {
       response.pipe(createWriteStream('swagger-static/swagger-ui.css'));
       Logger.log(
-        `Swagger UI css file written to: '/swagger-static/swagger-ui.css'`,
+        "Swagger UI css file written to: '/swagger-static/swagger-ui.css'",
         'SwaggerDocs',
       );
     });

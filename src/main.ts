@@ -1,7 +1,7 @@
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { setupServer } from './util/setupServer';
 import { config } from 'dotenv';
 import { INestApplication } from '@nestjs/common';
+import { setupServer } from './util/setupServer';
 
 function setupSwaggerDocument(app: INestApplication) {
   const appTitle = process.env.SWAGGER_APP_TITLE ?? 'NestJS Starter';

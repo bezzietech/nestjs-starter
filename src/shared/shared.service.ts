@@ -25,8 +25,8 @@ export class SharedService {
     const mailTransport = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: parseInt(process.env.MAIL_PORT, 10),
-      secure: process.env.SECURE_MAIL == 'true',
-      requireTLS: process.env.REQUIRE_TLS == 'true',
+      secure: process.env.SECURE_MAIL === 'true',
+      requireTLS: process.env.REQUIRE_TLS === 'true',
       auth: {
         type: 'login',
         user: process.env.MAIL_USERNAME,
@@ -34,16 +34,16 @@ export class SharedService {
       },
     });
     return new Promise<boolean>((resolve, reject) => {
-      mailTransport.sendMail(mailOptions, function (error: any) {
+      mailTransport.sendMail(mailOptions, (error: any) => {
         if (error) {
-          console.log(
+          console.error(
             `Some error occurerd while sending mail. ${error}`,
             'error',
             'Nodemailer',
           );
-          reject(false);
+          reject(error);
         } else {
-          console.log(
+          console.warn(
             `Mail successfully sent to email - ${to}`,
             'info',
             'Nodemailer',

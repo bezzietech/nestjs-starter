@@ -1,13 +1,16 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
-import { AppService } from './app.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
-import { CurrentUser } from './shared/decorators/user.decorator';
 import { User } from '@clerk/clerk-sdk-node';
+import { CurrentUser } from './shared/decorators/user.decorator';
+import { AppService } from './app.service';
+
 @ApiTags('App')
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) {
+    //
+  }
 
   @Get('protected')
   @UseGuards(AuthGuard('jwt'))

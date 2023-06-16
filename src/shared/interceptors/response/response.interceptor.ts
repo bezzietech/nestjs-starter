@@ -13,19 +13,17 @@ export class ResponseInterceptor implements NestInterceptor {
     const req = context.switchToHttp().getRequest();
     const res = context.switchToHttp().getResponse();
     const currentTime = Date.now();
-    const method = req.method;
-    const url = req.url;
+    const { method } = req;
+    const { url } = req;
     return next.handle().pipe(
-      map((data) => {
-        return {
-          code: res.statusCode,
-          data,
-          error: false,
-          timeTaken: `${Date.now() - currentTime}ms`,
-          url,
-          method,
-        };
-      }),
+      map((data) => ({
+        code: res.statusCode,
+        data,
+        error: false,
+        timeTaken: `${Date.now() - currentTime}ms`,
+        url,
+        method,
+      })),
     );
   }
 }

@@ -14,7 +14,8 @@ export class ValidationPipe implements PipeTransform<any> {
     //
   }
 
-  async transform(value: any, metadata: ArgumentMetadata) {
+  async transform(value_: any, metadata: ArgumentMetadata) {
+    let value = value_;
     if (!value) {
       throw new HttpException(
         'Validation Failed. No Body provided.',
@@ -63,13 +64,13 @@ export class ValidationPipe implements PipeTransform<any> {
       return errors.children
         .map((err) => this.formatErrorsRecursively(err))
         .join(' ');
-    } else {
-      let res = '';
-      for (const property in errors.constraints) {
-        res += errors.constraints[property] += ',';
-      }
-      return res;
     }
+    let res = '';
+    Object.keys(errors.constraints).forEach((key) => {
+      res += `${errors.constraints[key]},`;
+    });
+
+    return res;
   };
 
   private formatErrors = (errors: any[]) =>
@@ -77,11 +78,13 @@ export class ValidationPipe implements PipeTransform<any> {
       if (err.children?.length) {
         // For Metadat Validation
         return this.formatErrorsRecursively(err);
-      } else {
-        for (const property in err.constraints) {
-          return err.constraints[property];
-        }
       }
+      let res = '';
+      Object.keys(err.constraints).forEach((key) => {
+        res += `${err.constraints[key]},`;
+      });
+
+      return res;
     });
 
   private isEmptyObject = (object: any) => Object.keys(object).length === 0;
