@@ -12,9 +12,9 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
-      - name: installing eslint
-        run: npm i -g eslint
         with:
           node-version: '16'
+      - name: installing eslint
+        run: npm i -g eslint
       - name: Fixing Files
         run: eslint . --ext .ts,.js
