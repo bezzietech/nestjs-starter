@@ -15,6 +15,6 @@ jobs:
         with:
           node-version: '16'
       - name: installing eslint
-        run: npm i -g eslint
-      - name: Fixing Files
-        run: eslint . --ext .ts,.js
+        run: npm ci
+      - name: Fixing Lint
+        run: npm run lint
