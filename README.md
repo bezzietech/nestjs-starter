@@ -1,11 +1,11 @@
 ## Starter App with NestJS Swagger, ClerkJS, and Mongoose
 
-<p align="center" style="display:flex; gap:4px; width:100%; justify-content:space-between;">
-  <a href="http://bezzietech.com" target="blank"><img src="https://bezzietech.com/img/Logo.png" width="150" height="150" alt="BezzieTech Logo" /></a>
-  <a href="http://bezzietech.com" target="blank"><img src="https://bezzietech.com/img/clerk-logo.svg" width="120" height="120" alt="Clerk Logo" /></a>
+<p align="center" style="display:flex; gap:4px; width:100%; justify-content:space-between;align-items:center;">
+  <a href="http://bezzietech.com" target="blank"><img src="https://bezzietech.com/_next/static/media/bt-light.e123a5ce.svg" width="150" height="150" alt="BezzieTech Logo" /></a>
+  <a href="http://bezzietech.com" target="blank"><img src="https://clerk.com/v2/downloads/clerk-logo-black.png"  height="50" alt="Clerk Logo" /></a>
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" height="120" alt="Nest Logo" /></a>
-  <a href="http://nestjs.com/" target="blank"><img src="https://bezzietech.com/img/swagger-logo.svg" width="200" height="120" alt="Swagger Logo" /></a>
-      <a href="http://nestjs.com/" target="blank"><img src="https://bezzietech.com/img/mongodb.svg" width="200" height="120" alt="Mongo Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://static1.smartbear.co/swagger/media/assets/images/swagger_logo.svg" width="200" height="120" alt="Swagger Logo" /></a>
+      <a href="http://nestjs.com/" target="blank"><img src="https://webimages.mongodb.com/_com_assets/cms/kuyjf3vea2hg34taa-horizontal_default_slate_blue.svg" width="200" height="120" alt="Mongo Logo" /></a>
 </p>
 This repository contains a starter application built with NestJS 10.0.1 and TypeScript. It integrates Swagger for API documentation, ClerkJS for authentication, and Mongoose as the database ORM.
 
